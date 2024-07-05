@@ -1,0 +1,51 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 16px 32px;
+  border-bottom: 1px solid #B0BEC5;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.link {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease-in-out;
+}
+.link:hover {
+  background-color: #B3E5FC;
+}
+
+.main {
+  flex: 1;
+}
+
+.footer {
+  padding: 32px 40px;
+  background-color: #333;
+  color: #fff;
+}
+.copyright {
+  font-size: 0.75rem;
+  text-align: center;
+}
