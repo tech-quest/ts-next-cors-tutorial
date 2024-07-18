@@ -55,8 +55,6 @@ export const useMutateFetch = <T>(method: string, initialOptions?: { url?: strin
 
     return await fetch(url, { ...configs, body })
       .then(async (res) => {
-        setIsLoading(false);
-
         if (!res.ok) {
           handleError(res);
           return;
@@ -69,6 +67,9 @@ export const useMutateFetch = <T>(method: string, initialOptions?: { url?: strin
         setError({
           message: '通信エラーが発生しました。ネットワーク環境を確認するか、時間を置いて再度アクセスしてください。',
         });
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
