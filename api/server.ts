@@ -8,18 +8,6 @@ const port = 8000;
 // Middlewares and settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-
-  // intercept OPTIONS method
-  if ('OPTIONS' === req.method) {
-    res.send(200);
-  } else {
-    next();
-  }
-});
 
 // ↓↓↓ バックエンド処理を記述して実際に開発してみましょう！！
 app.get('/messages', async (_, res) => {
