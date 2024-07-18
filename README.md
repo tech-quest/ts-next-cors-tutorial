@@ -71,7 +71,7 @@ root@9962b6d42569:/var/www# npm ci
 
 下記画像のように `node_modules` という名称のフォルダが作成されていれば成功です。
 
-<img src="./.docs/images/image2.png" alt="">
+<img src="./.docs/images/image2.png" alt="" width="280">
 
 ### 6. アプリケーションを起動する
 
