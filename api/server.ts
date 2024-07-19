@@ -8,8 +8,10 @@ const port = 8000;
 // Middlewares and settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// ↓↓↓ アクセスコントロール処理を記述して実際に開発してみましょう！！
 
-// ↓↓↓ バックエンド処理を記述して実際に開発してみましょう！！
+// ↑↑↑ アクセスコントロール処理を記述して実際に開発してみましょう！！
+
 app.get('/messages', async (_, res) => {
   return res.json({ data: messagesData });
 });
