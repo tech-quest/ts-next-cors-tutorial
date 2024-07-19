@@ -8,20 +8,20 @@ const port = 8000;
 // Middlewares and settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// ↓↓↓ アクセスコントロール処理を記述して実際に開発してみましょう！！
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-  // intercept OPTIONS method
-  if ('OPTIONS' === req.method) {
-    res.send(200);
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
   } else {
     next();
   }
 });
+// ↑↑↑ アクセスコントロール処理を記述して実際に開発してみましょう！！
 
-// ↓↓↓ バックエンド処理を記述して実際に開発してみましょう！！
 app.get('/messages', async (_, res) => {
   return res.json({ data: messagesData });
 });
@@ -75,8 +75,6 @@ app.delete('/messages/:id', async (req, res) => {
 
   return res.json({ data: { ...message, content: 'DELETE 動作確認用メッセージ' } });
 });
-
-// ↑↑↑ バックエンド処理を記述して実際に開発してみましょう！！
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
